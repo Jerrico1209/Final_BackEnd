@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  Admin_ID     Int     @id @default(autoincrement())
+  User         String  @db.VarChar(255)
+  User_Contact Decimal @db.Decimal(255, 0)
+}
+
+model Customer {
+  Customer_ID      Int    @id @default(autoincrement())
+  Customer_name    String @db.VarChar(255)
+  Customer_address String @db.VarChar(255)
+  Customer_contact String @db.VarChar(255)
+}
+
+model Product {
+  Product_ID     Int    @id @default(autoincrement())
+  Product_type   String @db.VarChar(255)
+  Product_size   String @db.VarChar(255)
+  Product_amount Int
+}
+
+model Supplier {
+  Supplier_ID      Int    @id @default(autoincrement())
+  Supplier_name    String @db.VarChar(255)
+  Supplier_origin  String @db.VarChar(255)
+  Supplier_contact Int
+}
+
+model Workers {
+  Workers_ID      Int    @id @default(autoincrement())
+  Workers_name    String @db.VarChar(255)
+  Workers_address String @db.VarChar(255)
+  Workers_age     Int
+  Workers_contact Int
+}
