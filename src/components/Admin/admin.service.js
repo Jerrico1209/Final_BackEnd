@@ -2,7 +2,8 @@ const prisma = require("../../db")
 
 const{
     findData,
-    findDataById
+    findDataById,
+    addAdmin,
 } = require("./admin.repository")
 
 const getAllData = async () => {
@@ -10,16 +11,23 @@ const getAllData = async () => {
     return Data
 }
 
-const getDataById = async (id) => {
-    const Data = await findDataById(id)
+const getDataById = async (Admin_ID) => {
+    const Data = await findDataById(Admin_ID)
 
-    if (!product){
+    if (!Data){
         throw Error ("Data not found")
     }
     return Data
 }
 
+const createNewAdmin = async (admin) => {
+    const newAdmin = await addAdmin(admin)
+
+    return newAdmin
+}
+
 module.exports = {
     getAllData,
     getDataById,
+    createNewAdmin,
 }
