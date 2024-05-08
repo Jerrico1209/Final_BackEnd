@@ -31,7 +31,7 @@ model Supplier {
   Supplier_ID      Int    @id @default(autoincrement())
   Supplier_name    String @db.VarChar(255)
   Supplier_origin  String @db.VarChar(255)
-  Supplier_contact Int
+  Supplier_contact BigInt
 }
 
 model Workers {
@@ -39,5 +39,5 @@ model Workers {
   Workers_name    String @db.VarChar(255)
   Workers_address String @db.VarChar(255)
   Workers_age     Int
-  Workers_contact Int
+  Workers_contact BigInt
 }
